@@ -1,41 +1,11 @@
-# farmerFrontend
-
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Στην αρχή παίρνουμε από το git τον κώδικα του frontend πατώντας στο code και κατεβάζοντας τον, στην συνέχεια τρέχουμε το πρόγραμμα 
+του frontend μέσω της εντολής npm install αφού κατεβάσει τους φακέλους μπορούμε να προχωρήσουμε μέσω της επόμενης εντολής που είναι
+το npm run dev αφού ανοίξει πατάμε πάνω στο Link και μπαίνουμε στην εφαρμογή ο χρήστης μπορεί να κάνει signup και στην συνέχεια login
+με τον κωδικό και όνομα που έχει βάλει για να συνδεθεί σαν admin μπορεί να βάλει στα πεδία όνομα και κωδικό "admin" και έτσι θα γίνει 
+διαχειριστής σαν διαχειριστής μπορεί να πατήσει στην καρτέλα στην λίστα users πάνω δεξία και εκεί μπορεί να δει τους χρήστες που υπάρχουν
+ήδη μέσα στην εφαρμογή πατώντας στο κουμπί details μπορεί να δει λεπτομέρειες με τα στοιχεία του χρήστη μπορεί να πατήσει το κουμπί 
+του declarations για να κάνει νέα αίτηση και στην συνέχεια μπορεί να δει ποιοι είναι inspector για να τους κάνει delete μπορεί να πατήσει
+το κουμπί user requests για να δει τις αιτήσεις για ρόλους που έχουν κάνει οι χρήστες και να τους κάνει accept και reject.Μπορεί να 
+προσθέσει νέο χρήστη μέσω του κουμπιού create new user. Oταν κάποιος συνδεθεί σαν user μπορεί να κάνει αίτηση για αποζημίωση βάζοντας τα στοιχεία του
+στην συνέχεια μπορεί να προβεί σε επεξεργασία των στοιχείων του και να κάνει αίτηση για ρόλο Inspector.Οταν κάποιος γίνει inspector μπορεί να αποδέχεται και
+απορρίπτει τις αιτήσεις που του έρχονται να προσθέτει το ποσό αποζημίωσης του αγρότη μπορεί να κάνει επιτόπιο έλεγχο για να δει το χωράφι. 
