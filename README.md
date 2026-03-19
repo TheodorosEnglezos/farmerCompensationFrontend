@@ -1,4 +1,6 @@
-Στην αρχή τρέχουμε την εντολή στον docker run --name ds-lab-pg --rm \
+This is the frontend for the Farmers Compensation System. The application allows users to register, log in, submit compensation requests, and manage profiles. Admins and inspectors have advanced features for user and request management.
+
+docker run --name ds-lab-pg --rm \
 -e POSTGRES_PASSWORD=pass123 \
 -e POSTGRES_USER=postgres \
 -e POSTGRES_DB=farmers \
@@ -6,34 +8,64 @@
 -v ds-lab-vol:/var/lib/postgresql/data \
 postgres:14
 
-Στην βάση συνδέεται με την postgres 
-στο πεδίο User: Βάζουμε postgres
-στο πεδίο Password: βάζουμε pass123
-στο πεδίο Database: βάζουμε farmers 
-στην συνέχεια πατάμε apply και οκ
+# Database Connection with PostgreSQL 14:
+Database: farmers User: postgres Password: pass123 Click Apply and ok.
 
-Στο postman όλα τα post και get request υπάρχουν σε αυτό το link: https://team16-ds-2023.postman.co/workspace/team16_ds_2023-Workspace~3cd744a2-c049-4360-bd8f-9ca1f2d04773/collection/32323426-a2872f8c-0bbc-484a-b9df-fe3a42d70434?action=share&creator=32323426&active-environment=32323426-99e68ea4-e233-411d-a520-3c68b62279f4
+# Postman
 
-Αφού τρέξουμε το πρόγραμμα μέσα από το Intelij μπορούμε να κάνουμε register για νέο χρήστη και
-στην συνέχεια login. Αν ο χρήστης υπάρχει ήδη κάνει κατευθείαν login.
+All POST and GET requests are available via Postman at: https://team16-ds-2023.postman.co/workspace/team16_ds_2023-Workspace~3cd744a2-c049-4360-bd8f-9ca1f2d04773/collection/32323426-a2872f8c-0bbc-484a-b9df-fe3a42d70434?action=share&creator=32323426&active-environment=32323426-99e68ea4-e233-411d-a520-3c68b62279f4
 
-Για signup θα χρειαστείτε email, username, password, full_name, address, afm, identity_id(αποτελείται από 2 γράμματα και 6 αριθμούς)
-Για login email, password
+# User Features
 
-Ο user έχει default role Farmer, και μπορεί να δει τα στοιχεία του, να τα κάνει edit, να κάνει αίτηση στον admin για να πάρει ρόλο, να κάνει αίτηση αποζημίωσης, και να την επεξεργαστεί ή να την σβήσει. 
+Sign Up: Requires email, username, password, full_name, address, afm, identity_id (2 letters + 6 numbers).
+Login: Use email and password. If the user exists, login happens automatically.
+Default Role: Farmer
+Profile Management: View and edit personal information.
+Role Request: Request promotion to Inspector.
+Compensation Request: Submit, edit, or delete compensation requests.
 
-Ο admin δημιουργείται αυτόματα στη βάση με username admin και password admin. Ο admin μπορεί να δει όλους users, όλες τις αιτήσεις, να τα επεξεργαστεί και έχει την δυνατότητα να δώσει ρόλο inspector σε όσους users το επιθυμούν.
+# Admin Features
 
-Ο inspector βλέπει όσους users έχουν κάνει αιτήσεις, και τον εαυτό του τον οποίο μπορεί και να επεξεργαστεί. Στις αιτήσεις αποφασίζει για την έκβαση της απόφασης και αν θέλει υπάρχει και επιλογή check on site. Αν επιλέξει accept σε μια αίτηση πρέπει να δώσει ως body amount που είναι το ποσό της αποζημίωσης. 
+Automatic Admin Account: username: admin, password: admin
+User Management: View all users, see details, edit, and delete users.
+Role Assignment: Grant Inspector role to users.
+Declarations: Create new declarations for users.
+User Requests: Approve or reject role requests from users.
+Create New User: Add new users manually.
 
-Διαδικασία για να πάρουμε τον κώδικα του frontend πατώντας στο code και κατεβάζοντας τον, στην συνέχεια τρέχουμε το πρόγραμμα 
-του frontend μέσω της εντολής npm install αφού κατεβάσει τους φακέλους μπορούμε να προχωρήσουμε μέσω της επόμενης εντολής που είναι
-το npm run dev αφού ανοίξει πατάμε πάνω στο Link και μπαίνουμε στην εφαρμογή ο χρήστης μπορεί να κάνει signup και στην συνέχεια login
-με τον κωδικό και όνομα που έχει βάλει για να συνδεθεί σαν admin μπορεί να βάλει στα πεδία όνομα και κωδικό "admin" και έτσι θα γίνει 
-διαχειριστής σαν διαχειριστής μπορεί να πατήσει στην καρτέλα στην λίστα users πάνω δεξία και εκεί μπορεί να δει τους χρήστες που υπάρχουν
-ήδη μέσα στην εφαρμογή πατώντας στο κουμπί details μπορεί να δει λεπτομέρειες με τα στοιχεία του χρήστη μπορεί να πατήσει το κουμπί 
-του declarations για να κάνει νέα αίτηση και στην συνέχεια μπορεί να δει ποιοι είναι inspector για να τους κάνει delete μπορεί να πατήσει
-το κουμπί user requests για να δει τις αιτήσεις για ρόλους που έχουν κάνει οι χρήστες και να τους κάνει accept και reject.Μπορεί να 
-προσθέσει νέο χρήστη μέσω του κουμπιού create new user. Oταν κάποιος συνδεθεί σαν user μπορεί να κάνει αίτηση για αποζημίωση βάζοντας τα στοιχεία του
-στην συνέχεια μπορεί να προβεί σε επεξεργασία των στοιχείων του και να κάνει αίτηση για ρόλο Inspector.Οταν κάποιος γίνει inspector μπορεί να αποδέχεται και
-απορρίπτει τις αιτήσεις που του έρχονται να προσθέτει το ποσό αποζημίωσης του αγρότη μπορεί να κάνει επιτόπιο έλεγχο για να δει το χωράφι. 
+# Inspector Features
+View Requests: Inspect compensation requests submitted by users.
+Decision Management: Approve or reject requests.
+Compensation Management: Set compensation amount for approved requests.
+On-site Check: Optionally perform on-site verification of farmland.
+Profile Management: View and edit own details.
+
+# Running the Frontend
+
+Ensure the backend is running and connected to PostgreSQL.
+Open the frontend in the browser using the npm run dev link.
+Users can sign up and login.
+Admins log in with credentials admin/admin to access management features.
+Inspectors can manage and review requests after being assigned the role.
+
+# Technologies
+
+React.js / Next.js (Frontend framework)
+Node.js / npm (Package management)
+Postman (API testing)
+
+# Frontend Usage Instructions
+
+Download the Frontend Code
+Click on Code in the repository and download the project.
+Install Dependencies
+Open a terminal in the frontend project folder and run:
+npm install
+This will install all necessary dependencies.
+Run the Frontend
+After installation, start the development server:
+npm run dev
+Once the server starts, click the link shown in the terminal to open the application in your browser.
+User Signup and Login
+A new user can sign up and then log in using the credentials they created.
+To log in as admin, enter username: admin and password: admin.
