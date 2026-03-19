@@ -1,4 +1,4 @@
-This is the frontend for the Farmers Compensation System. The application allows users to register, log in, submit compensation requests, and manage profiles. Admins and inspectors have advanced features for user and request management.
+# This is the frontend for the Farmers Compensation System. The application allows users to register, log in, submit compensation requests, and manage profiles. Admins and inspectors have advanced features for user and request management.
 
 docker run --name ds-lab-pg --rm \
 -e POSTGRES_PASSWORD=pass123 \
